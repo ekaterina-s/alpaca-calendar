@@ -1,0 +1,140 @@
+:root {
+    --font: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: var(--font);
+}
+
+.svg-sprite {
+    display: none;
+}
+
+.calendar {
+    max-width: 320px;
+    background: url(img/alpaca.png) no-repeat center center/cover;
+    position: relative;
+    z-index: 1;
+    border-radius: 6px;
+    padding-top: 8px;
+}
+
+.calendar::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: #131417;
+    opacity: 0.9;
+    z-index: -1;
+    border-radius: inherit;
+}
+
+.calendar__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    padding: 4px 8px;
+}
+
+.calendar__month {
+    font: 500 12px/14px var(--font);
+    text-transform: uppercase;
+    color: #ffff;
+}
+
+.calendar__button {
+    background: none;
+    border: 0;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.calendar__button-icon {
+    width: 8px;
+    height: 12px;
+}
+
+.calendar__button-icon--left {
+    transform: rotate(-180deg);
+}
+
+.calendar__body {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-row-gap: 8px;
+}
+
+.calendar__day {
+    aspect-ratio: 1/1;
+    background: none;
+    border: 0;
+    padding: 0;
+    color: #fff;
+    cursor: pointer;
+    font: 500 12px/24px var(--font);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 0;
+}
+
+.calendar__day._active{
+    background-color: #2D9CDB;
+}
+
+.calendar__day._start{
+    border-radius: 50% 0 0 50%;
+}
+
+.calendar__day._start::after,
+.calendar__day._end::after{
+    content: '';
+    border: 1px solid rgba(19, 20, 23, 0.1);
+    background: rgba(19, 20, 23, 0.3);
+    border-radius: 50%;
+    box-sizing: border-box;
+    position: absolute;
+    inset: 2px;
+    z-index: -1;
+}
+
+.calendar__day._end{
+    border-radius: 0 50% 50% 0;
+}
+
+.calendar__day._end._start{
+    border-radius: 50%;
+}
+
+.calendar__day._new{
+    color: rgba(255, 255, 255, 0.5);
+}
+
+
+
+.box{
+    width: 200px;
+    border: 2px solid;
+    margin: 20px;
+}
+
+.box:after{
+    content: '';
+    display: block;
+    padding-top: 100%;
+}
